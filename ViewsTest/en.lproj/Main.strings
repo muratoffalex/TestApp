@@ -1,0 +1,90 @@
+
+/* Class = "UILabel"; text = "Телефон:"; ObjectID = "104-wd-2iK"; */
+"104-wd-2iK.text" = "Телефон:";
+
+/* Class = "UILabel"; text = "имя"; ObjectID = "3Bg-MH-cc3"; */
+"3Bg-MH-cc3.text" = "имя";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6gD-kX-LAR"; */
+"6gD-kX-LAR.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Пароль"; ObjectID = "Adr-fO-VIN"; */
+"Adr-fO-VIN.placeholder" = "Пароль";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "GqH-N1-yMP"; */
+"GqH-N1-yMP.text" = "Email:";
+
+/* Class = "UITextField"; placeholder = "Имя пользователя"; ObjectID = "LsB-gn-Dvb"; */
+"LsB-gn-Dvb.placeholder" = "Имя пользователя";
+
+/* Class = "UILabel"; text = "Должность:"; ObjectID = "PaT-xp-eVO"; */
+"PaT-xp-eVO.text" = "Должность:";
+
+/* Class = "UILabel"; text = "Позвонить"; ObjectID = "Rdf-ww-Tu8"; */
+"Rdf-ww-Tu8.text" = "Позвонить";
+
+/* Class = "UILabel"; text = "Телефон:"; ObjectID = "ReD-20-bKo"; */
+"ReD-20-bKo.text" = "Телефон:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SMl-Sr-Y4q"; */
+"SMl-Sr-Y4q.text" = "Label";
+
+/* Class = "UILabel"; text = "имя"; ObjectID = "Skh-9b-OZf"; */
+"Skh-9b-OZf.text" = "имя";
+
+/* Class = "UILabel"; text = "ТЕСТ"; ObjectID = "U5m-EA-2qq"; */
+"U5m-EA-2qq.text" = "ТЕСТ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VWC-GG-4MZ"; */
+"VWC-GG-4MZ.text" = "Label";
+
+/* Class = "UILabel"; text = "Написать"; ObjectID = "Z2C-BI-oK8"; */
+"Z2C-BI-oK8.text" = "Написать";
+
+/* Class = "UILabel"; text = "ид"; ObjectID = "a7t-ZM-ujn"; */
+"a7t-ZM-ujn.text" = "ид";
+
+/* Class = "UITableViewSection"; headerTitle = "Section-2"; ObjectID = "aCq-QJ-L04"; */
+"aCq-QJ-L04.headerTitle" = "Section-2";
+
+/* Class = "UILabel"; text = "Имя:"; ObjectID = "bHX-75-6ZK"; */
+"bHX-75-6ZK.text" = "Имя:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bwZ-Lk-iCy"; */
+"bwZ-Lk-iCy.text" = "Label";
+
+/* Class = "UILabel"; text = "Написать"; ObjectID = "dEY-zP-GxM"; */
+"dEY-zP-GxM.text" = "Написать";
+
+/* Class = "UILabel"; text = "ID:"; ObjectID = "eyg-8k-jAT"; */
+"eyg-8k-jAT.text" = "ID:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "g0X-0p-FEE"; */
+"g0X-0p-FEE.text" = "Label";
+
+/* Class = "UILabel"; text = "Позвонить"; ObjectID = "gti-ba-nHV"; */
+"gti-ba-nHV.text" = "Позвонить";
+
+/* Class = "UITableViewSection"; headerTitle = "Инфо о сотруднике"; ObjectID = "jXY-UL-eqC"; */
+"jXY-UL-eqC.headerTitle" = "Инфо о сотруднике";
+
+/* Class = "UILabel"; text = "Должность:"; ObjectID = "m2W-83-WxI"; */
+"m2W-83-WxI.text" = "Должность:";
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "qfb-d8-Thk"; */
+"qfb-d8-Thk.normalTitle" = "Войти";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ryR-MX-vHE"; */
+"ryR-MX-vHE.text" = "Label";
+
+/* Class = "UILabel"; text = "Имя:"; ObjectID = "uW7-Dl-1sw"; */
+"uW7-Dl-1sw.text" = "Имя:";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "x0v-a0-1Wr"; */
+"x0v-a0-1Wr.text" = "Email:";
+
+/* Class = "UILabel"; text = "ид"; ObjectID = "xnO-mo-0lK"; */
+"xnO-mo-0lK.text" = "ид";
+
+/* Class = "UILabel"; text = "ID:"; ObjectID = "yT7-yT-gn7"; */
+"yT7-yT-gn7.text" = "ID:";
