@@ -42,15 +42,11 @@
                                                                                  action:@selector(loadData:)];
     } else {
         self.navigationItem.title = self.tabName;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"В начало"
-                                                                                  style:UIBarButtonItemStyleDone
-                                                                                 target:self
-                                                                                 action:@selector(returnToRoot:)];
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"В начало"
+//                                                                                  style:UIBarButtonItemStyleDone
+//                                                                                 target:self
+//                                                                                 action:@selector(returnToRoot:)];
     }
-}
-
-- (void) viewDidAppear:(BOOL)animated {
-    //NSLog(@"Controllers on stack = %ld", [self.navigationController.viewControllers count]);
 }
 
 - (void) returnToRoot: (id) sender {

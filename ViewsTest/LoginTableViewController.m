@@ -18,9 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
-//    [tempImageView setFrame: self.tableView.frame];
-//    self.tableView.backgroundView = tempImageView;
+    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"364H"]];
+    [tempImageView setFrame: self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
     
     self.loginInput.delegate = self;
     self.passInput.delegate = self;

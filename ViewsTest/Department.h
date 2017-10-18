@@ -18,6 +18,5 @@
 
 - (NSMutableArray*) parseChild:(NSArray*) dic : (NSInteger) parentID;
 - (Department*) parseData:(NSDictionary*) dic;
-//- (NSDictionary*) inDictionary:(Department*) dep;
 
 @end

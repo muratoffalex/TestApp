@@ -83,13 +83,18 @@
                                                         <constraint firstAttribute="width" constant="185" id="tzt-LL-s2g"/>
                                                     </constraints>
                                                 </imageView>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OGH-Hi-w5m">
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OGH-Hi-w5m">
                                                     <rect key="frame" x="85" y="96" width="150" height="3"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="xgu-Bt-qJT"/>
+                                                    </constraints>
                                                 </progressView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DQT-Tm-d7T" firstAttribute="top" secondItem="w1L-It-3io" secondAttribute="top" constant="7" id="7Cf-di-tPr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OGH-Hi-w5m" secondAttribute="trailing" constant="77" id="7gT-zL-36q"/>
+                                                <constraint firstItem="OGH-Hi-w5m" firstAttribute="top" secondItem="w1L-It-3io" secondAttribute="topMargin" constant="88" id="IT4-Rd-gcF"/>
+                                                <constraint firstItem="OGH-Hi-w5m" firstAttribute="leading" secondItem="w1L-It-3io" secondAttribute="leadingMargin" constant="77" id="ZgI-0g-Z72"/>
                                                 <constraint firstAttribute="trailing" secondItem="DQT-Tm-d7T" secondAttribute="trailing" constant="68" id="bVm-UG-hQC"/>
                                                 <constraint firstAttribute="bottom" secondItem="DQT-Tm-d7T" secondAttribute="bottom" constant="8.5" id="bpF-tv-ojv"/>
                                                 <constraint firstItem="DQT-Tm-d7T" firstAttribute="leading" secondItem="w1L-It-3io" secondAttribute="leading" constant="67" id="yXB-va-WAe"/>

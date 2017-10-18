@@ -123,4 +123,13 @@
     }
 }
 
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
+//(NSInteger)section{
+//    NSString *headerTitle;
+//    if (section==0) {
+//        headerTitle = @"Информация";
+//    }
+//    return headerTitle;
+//}
+
 @end
