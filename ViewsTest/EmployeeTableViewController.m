@@ -19,6 +19,8 @@
     
     self.navigationItem.title = self.Name;
     
+    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    
     _idLabel.text = [NSString stringWithFormat:@"%ld", self.ID];
     _nameLabel.text = self.Name;
     _titleLabel.text = self.Title;
@@ -123,6 +125,13 @@
     }
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
+}
+//
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
 //(NSInteger)section{
 //    NSString *headerTitle;

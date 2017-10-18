@@ -59,8 +59,6 @@
         [departments addObject:dep];
     }
     
-    
-    
     return departments;
 }
 

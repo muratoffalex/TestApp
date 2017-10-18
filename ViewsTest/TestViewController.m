@@ -30,6 +30,8 @@
         });
     }
     
+    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    
     if ([self.navigationController.viewControllers count] <= 2) {
         self.navigationItem.title = @"Отделения";
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Выход"
@@ -42,15 +44,22 @@
                                                                                  action:@selector(loadData:)];
     } else {
         self.navigationItem.title = self.tabName;
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"В начало"
-//                                                                                  style:UIBarButtonItemStyleDone
-//                                                                                 target:self
-//                                                                                 action:@selector(returnToRoot:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"В начало"
+                                                                                  style:UIBarButtonItemStyleDone
+                                                                                 target:self
+                                                                                 action:@selector(returnToRoot:)];
     }
 }
 
 - (void) returnToRoot: (id) sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -18,9 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"364H"]];
-    [tempImageView setFrame: self.tableView.frame];
-    self.tableView.backgroundView = tempImageView;
+//    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"364H"]];
+//    [tempImageView setFrame: self.tableView.frame];
+//    self.tableView.backgroundView = tempImageView;
+    
+    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
     
     self.loginInput.delegate = self;
     self.passInput.delegate = self;
@@ -43,13 +45,62 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSInteger number;
+    
+    if (section == 0) {
+        number = 3;
+    } else if (section == 1) {
+        number = 1;
+    }
+    
+    return number;
+}
 
-    return 2;
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
+(NSInteger)section{
+    NSString *headerTitle;
+    if (section==0) {
+        headerTitle = @"Авторизация";
+    }
+    return headerTitle;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        tableView.sectionHeaderHeight = 30;
+    if (section == 1)
+        tableView.sectionHeaderHeight = 0;
+    return tableView.sectionHeaderHeight;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0)
+        tableView.sectionFooterHeight = 0;
+    return tableView.sectionFooterHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                if ([_rememberSwitch isOn]) {
+                    [_rememberSwitch setOn:NO animated:YES];
+                } else {
+                    [_rememberSwitch setOn:YES animated:YES];
+                }
+            break;
+        }
+    }
 }
 
 //- (void) viewWillAppear:(BOOL)animated {
