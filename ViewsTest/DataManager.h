@@ -13,7 +13,6 @@
 + (DataManager *)sharedInstance;
 
 - (NSData*) loadImage:(NSInteger) ID;
-
 - (NSArray*) loadData;
 
 @end
