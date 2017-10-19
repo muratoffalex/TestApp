@@ -311,6 +311,7 @@
                             <outlet property="delegate" destination="eCI-9V-9iq" id="OiO-3D-MTZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="dHy-5O-JiM"/>
                     <connections>
                         <outlet property="callLabel" destination="Rdf-ww-Tu8" id="VWK-cd-Lj6"/>
                         <outlet property="emailCell" destination="R2p-Za-8Ya" id="AuZ-eC-JBm"/>
@@ -327,12 +328,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYC-vr-QMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772.5" y="-287.32394366197184"/>
+            <point key="canvasLocation" x="774" y="-290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihN-lg-LgP">
             <objects>
-                <navigationController storyboardIdentifier="MainNav" automaticallyAdjustsScrollViewInsets="NO" id="qYO-Td-OuK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" id="qYO-Td-OuK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YAd-ab-m9x">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>

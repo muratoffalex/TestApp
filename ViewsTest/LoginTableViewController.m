@@ -8,6 +8,7 @@
 
 #import "LoginTableViewController.h"
 #import "TestViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginTableViewController ()
 
@@ -35,6 +36,7 @@
         TestViewController * detail = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
         [self.navigationController pushViewController:detail animated:NO];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,54 +47,36 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     
-    NSInteger number;
-    
-    if (section == 0) {
-        number = 3;
-    } else if (section == 1) {
-        number = 1;
-    }
-    
-    return number;
+    return 4;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
-(NSInteger)section{
-    NSString *headerTitle;
-    if (section==0) {
-        headerTitle = @"Авторизация";
-    }
-    return headerTitle;
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
+//(NSInteger)section{
+//    NSString *headerTitle;
+//    if (section==0) {
+//        headerTitle = @"Авторизация";
+//    }
+//    return headerTitle;
+//}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
-        tableView.sectionHeaderHeight = 30;
-    if (section == 1)
-        tableView.sectionHeaderHeight = 0;
+        tableView.sectionHeaderHeight = CGFLOAT_MIN;
     return tableView.sectionHeaderHeight;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    if (section == 0)
-        tableView.sectionFooterHeight = 0;
-    return tableView.sectionFooterHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 1) {
         switch (indexPath.row) {
-            case 0:
+            case 3:
                 if ([_rememberSwitch isOn]) {
                     [_rememberSwitch setOn:NO animated:YES];
                 } else {
@@ -100,7 +84,6 @@
                 }
             break;
         }
-    }
 }
 
 //- (void) viewWillAppear:(BOOL)animated {
@@ -181,17 +164,22 @@
                 
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 
-                [defaults setInteger:1 forKey:@"status"];
+                if ([_rememberSwitch isOn]) {
+                    [defaults setInteger:1 forKey:@"status"];
+                } else {
+                    [defaults setInteger:0 forKey:@"status"];
+                }
+                
                 [defaults setValue:_loginInput.text forKey:@"login"];
                 [defaults setValue:_passInput.text forKey:@"password"];
                 [defaults synchronize];
                 
                 _loginInput.text = @"";
                 _passInput.text = @"";
+                
                 UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 TestViewController * detail = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
                 [self.navigationController pushViewController:detail animated:YES];
-                
             } else {
                 [self showPopUp:@"Ошибка" : @"Неправильный логин или пароль." : @"Повторить ввод"];
             }

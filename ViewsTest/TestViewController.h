@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSMutableArray* tableData;
 @property (strong, nonatomic) NSString* tabName;
 
+@property (retain, nonatomic) TestViewController* root;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

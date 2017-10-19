@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestViewController.h"
+#import "DataManager.h"
 
 @interface AppDelegate ()
 
@@ -19,15 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
 //    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    UIStoryboard* storyboardLogin = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-//    BOOL logined = true;
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSInteger status = [defaults integerForKey:@"status"];
+//    BOOL logined = status ? 1 : 0;
 //
 //    if (!logined) {
-//        self.window.rootViewController = [storyboardLogin instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+//        self.window.rootViewController = [storyboardLogin instantiateViewControllerWithIdentifier:@"loginNav"];
 //    } else {
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
 //    }
 //    
 //    [self.window makeKeyAndVisible];

@@ -81,4 +81,10 @@
     });
 }
 
+- (void) manageUserData:(BOOL) status {
+    
+    // здесь будут обрабатываться данные из NSUserDefaults
+    
+}
+
 @end

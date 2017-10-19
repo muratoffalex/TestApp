@@ -25,8 +25,9 @@
     [super viewDidLoad];
     
     if ([self.navigationController.viewControllers count] == 2) {
+        _root = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-        [self loadData:nil];
+            [self loadData:nil];
         });
     }
     
@@ -51,8 +52,15 @@
     }
 }
 
+//- (void) viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:YES];
+//
+//    self.navigationController.navigationBar.prefersLargeTitles = YES;
+//
+//}
+
 - (void) returnToRoot: (id) sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    //[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

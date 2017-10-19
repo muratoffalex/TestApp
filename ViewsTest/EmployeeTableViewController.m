@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.Name;
-    
-    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    //self.navigationItem.title = self.Name;
+    self.navigationItem.title = @"Сотрудник";
+    self.navigationController.navigationBar.prefersLargeTitles = FALSE;
     
     _idLabel.text = [NSString stringWithFormat:@"%ld", self.ID];
     _nameLabel.text = self.Name;
@@ -45,6 +45,14 @@
     _photoImageView.clipsToBounds = YES;
     [self imageDownload];
     
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    
+    
+    
+    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,9 +109,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     switch (indexPath.row) {
-        case 3:
-            
-            break;
         case 5:
             if (![_phoneLabel.text  isEqual: @"Отсутствует"]) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", _phoneLabel.text]] options:@{} completionHandler:^(BOOL success) {

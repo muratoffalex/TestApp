@@ -14,5 +14,9 @@
 
 - (NSData*) loadImage:(NSInteger) ID;
 - (NSArray*) loadData;
+- (void) manageUserData:(BOOL) status;
+
+@property (strong, nonatomic) NSString* login;
+@property (strong, nonatomic) NSString* password;
 
 @end
