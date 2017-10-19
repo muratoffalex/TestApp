@@ -155,8 +155,8 @@
     [self.tableView reloadData];
     
     NSString* formatURL = [NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/GetAll?login=%@&password=%@",
-                           [[NSUserDefaults standardUserDefaults] stringForKey:@"login"],
-                           [[NSUserDefaults standardUserDefaults] stringForKey:@"password"]];
+                           [DataManager sharedInstance].login,
+                           [DataManager sharedInstance].password];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:formatURL]];
     [request setHTTPMethod:@"GET"];

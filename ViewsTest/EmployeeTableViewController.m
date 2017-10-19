@@ -7,6 +7,7 @@
 //
 
 #import "EmployeeTableViewController.h"
+#import "DataManager.h"
 
 @interface EmployeeTableViewController ()
 
@@ -58,7 +59,7 @@
 #pragma mark - Download Images
 
 - (void) imageDownload {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/GetWPhoto?login=%@&password=%@&id=%ld", [[NSUserDefaults standardUserDefaults] stringForKey:@"login"], [[NSUserDefaults standardUserDefaults] stringForKey:@"password"], self.ID]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/GetWPhoto?login=%@&password=%@&id=%ld", [DataManager sharedInstance].login, [DataManager sharedInstance].password, self.ID]];
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
     NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url];

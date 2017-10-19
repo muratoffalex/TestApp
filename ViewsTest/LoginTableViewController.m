@@ -9,6 +9,7 @@
 #import "LoginTableViewController.h"
 #import "TestViewController.h"
 #import "AppDelegate.h"
+#import "DataManager.h"
 
 @interface LoginTableViewController ()
 
@@ -28,12 +29,7 @@
     self.loginInput.delegate = self;
     self.passInput.delegate = self;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.status = [defaults integerForKey:@"status"];
-    
-    if (self.status == 1) {
+    if ([DataManager sharedInstance].status == 1) {
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         TestViewController * detail = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
         [self.navigationController pushViewController:detail animated:NO];
@@ -53,8 +49,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    
     return 4;
 }
 
@@ -87,18 +81,6 @@
             break;
         }
 }
-
-//- (void) viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:YES];
-//
-//    [self.navigationController setNavigationBarHidden:YES];
-//}
-//
-//- (void) viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:YES];
-//
-//    [self.navigationController setNavigationBarHidden:YES];
-//}
 
 #pragma mark - UITextFieldDelegate
 
@@ -163,25 +145,15 @@
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             if ([[NSString stringWithFormat:@"%@", success] isEqual: @"1"]) {
-                TestViewController* testViewController = [[TestViewController alloc] init];
                 
-                testViewController.login = _loginInput.text;
-                testViewController.password = _passInput.text;
-                
-                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                
-                if ([_rememberSwitch isOn]) {
-                    [defaults setInteger:1 forKey:@"status"];
-                } else {
-                    [defaults setInteger:0 forKey:@"status"];
-                }
-                
-                [defaults setValue:_loginInput.text forKey:@"login"];
-                [defaults setValue:_passInput.text forKey:@"password"];
-                [defaults synchronize];
+                [DataManager sharedInstance].login = _loginInput.text;
+                [DataManager sharedInstance].password = _passInput.text;
                 
                 _loginInput.text = @"";
                 _passInput.text = @"";
+                
+                BOOL isOn = [_rememberSwitch isOn];
+                [[DataManager sharedInstance] saveUserData:isOn];
                 
                 UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 TestViewController * detail = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];

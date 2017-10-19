@@ -21,8 +21,9 @@
     // Override point for customization after application launch.
     
     //[[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
-    
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
+    [[DataManager sharedInstance] loadUserData];
     
 //    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    UIStoryboard* storyboardLogin = [UIStoryboard storyboardWithName:@"Login" bundle:nil];

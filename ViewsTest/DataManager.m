@@ -37,54 +37,25 @@
     
     return self.imageData;
 }
-
-- (NSArray*) loadData {
-    NSString* formatURL = [NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/GetAll?login=%@&password=%@",
-                           [[NSUserDefaults standardUserDefaults] stringForKey:@"login"],
-                           [[NSUserDefaults standardUserDefaults] stringForKey:@"password"]];
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:formatURL]];
-    [request setHTTPMethod:@"GET"];
-    NSURLSession* session = [NSURLSession sharedSession];
-    NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,NSError *error) {
-        if (data == nil) {
-            [self printCannotLoad];
-        } else {
-            
-            NSError *error = nil;
-            NSDictionary* parsedJson = [NSJSONSerialization
-                                        JSONObjectWithData:data
-                                        options:0
-                                        error:&error];
-            
-            NSMutableArray* departments = [[NSMutableArray alloc] init];
-            
-            NSArray* departmentsInfo = [parsedJson valueForKeyPath:@"Departments"];
-            
-            for (NSDictionary* departmentsDic in departmentsInfo) {
-                Department* department = [[Department alloc] init];
-                
-                [departments addObject:[department parseData:departmentsDic]];
-            }
-            
-            self.currentArray = [NSArray arrayWithArray:departments].mutableCopy;
-        }
-    }];
+- (void) saveUserData:(BOOL) status {
     
-    [task resume];
-    return self.currentArray;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (status) {
+        [defaults setBool:YES forKey:@"status"];
+        [defaults setValue:self.login forKey:@"login"];
+        [defaults setValue:self.password forKey:@"password"];
+        [defaults synchronize];
+    }
 }
 
-- (void) printCannotLoad {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        NSLog(@"ERROR");
-    });
-}
-
-- (void) manageUserData:(BOOL) status {
+- (void) loadUserData {
     
-    // здесь будут обрабатываться данные из NSUserDefaults
-    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:@"status"]) {
+        self.status = [defaults boolForKey:@"status"];
+        self.login = [defaults stringForKey:@"login"];
+        self.password = [defaults stringForKey:@"password"];
+    }
 }
 
 @end
