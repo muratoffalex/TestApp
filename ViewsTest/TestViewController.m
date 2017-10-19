@@ -31,6 +31,10 @@
         });
     }
     
+    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
+    [tempImageView setFrame: self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
+    
     self.navigationController.navigationBar.prefersLargeTitles = TRUE;
     
     if ([self.navigationController.viewControllers count] <= 2) {
@@ -50,6 +54,12 @@
                                                                                  target:self
                                                                                  action:@selector(returnToRoot:)];
     }
+    
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 //- (void) viewWillAppear:(BOOL)animated {
@@ -59,9 +69,7 @@
 //
 //}
 
-- (void) returnToRoot: (id) sender {
-    //[self.navigationController popToRootViewControllerAnimated:YES];
-}
+#pragma mark - UITableViewController
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -139,6 +147,7 @@
     return cell;
 }
 
+#pragma mark - Receive, parsing data
 
 // загрузка, парсинг json GetAll и вывод в таблицу 0 уровень
 - (void) loadData:(id)sender {
@@ -193,6 +202,8 @@
             
 }
 
+#pragma mark - Other functions
+
 - (void) printCannotLoad {
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self showPopUp:@"Ошибка" : @"Ошибка при выполнении запроса. Попробуйте снова." : @"ОК"];
@@ -221,9 +232,8 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void) returnToRoot: (id) sender {
+    //[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

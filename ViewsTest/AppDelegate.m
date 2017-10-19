@@ -20,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
 //    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    UIStoryboard* storyboardLogin = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -31,7 +35,7 @@
 //    } else {
 //        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
 //    }
-//    
+//
 //    [self.window makeKeyAndVisible];
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -19,14 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"364H"]];
-//    [tempImageView setFrame: self.tableView.frame];
-//    self.tableView.backgroundView = tempImageView;
+    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
+    [tempImageView setFrame: self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
     
     self.navigationController.navigationBar.prefersLargeTitles = TRUE;
     
     self.loginInput.delegate = self;
     self.passInput.delegate = self;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.status = [defaults integerForKey:@"status"];
@@ -98,6 +100,8 @@
 //    [self.navigationController setNavigationBarHidden:YES];
 //}
 
+#pragma mark - UITextFieldDelegate
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     if (textField == _loginInput) {
         [_loginInput resignFirstResponder];
@@ -114,6 +118,8 @@
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:TRUE];
 }
+
+#pragma mark - Click button login
 
 - (IBAction)loginButtonTapped:(UIButton *)sender {
     
@@ -188,6 +194,8 @@
     } else {
     }
 }
+
+#pragma mark - Other functions
 
 - (void) printCannotLoad {
     dispatch_sync(dispatch_get_main_queue(), ^{

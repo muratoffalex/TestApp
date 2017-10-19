@@ -17,9 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
+    [tempImageView setFrame: self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
+    
     //self.navigationItem.title = self.Name;
     self.navigationItem.title = @"Сотрудник";
-    self.navigationController.navigationBar.prefersLargeTitles = FALSE;
     
     _idLabel.text = [NSString stringWithFormat:@"%ld", self.ID];
     _nameLabel.text = self.Name;
@@ -47,18 +50,12 @@
     
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-    
-    
-    
-    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+
+#pragma mark - Download Images
 
 - (void) imageDownload {
     NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/GetWPhoto?login=%@&password=%@&id=%ld", [[NSUserDefaults standardUserDefaults] stringForKey:@"login"], [[NSUserDefaults standardUserDefaults] stringForKey:@"password"], self.ID]];
@@ -67,6 +64,8 @@
     NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url];
     [downloadTask resume];
 }
+
+#pragma mark - NSURLSession
 
 - (void) URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     NSData* data = [NSData dataWithContentsOfURL:location];
@@ -136,6 +135,7 @@
         return CGFLOAT_MIN;
     return tableView.sectionHeaderHeight;
 }
+
 //
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
 //(NSInteger)section{
