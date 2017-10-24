@@ -11,14 +11,8 @@
 
 @interface TestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSString* login;
-@property (strong, nonatomic) NSString* password;
-@property (strong, nonatomic) Department* path;
-@property (strong, nonatomic) NSMutableArray* tableData;
-@property (strong, nonatomic) NSString* tabName;
+@property (strong, nonatomic) NSString *tabName;
 
-@property (retain, nonatomic) TestViewController* root;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) UITableView* tableView;
 
 @end

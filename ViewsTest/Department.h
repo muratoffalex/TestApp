@@ -12,11 +12,11 @@
 @interface Department : NSObject
 
 @property (assign, nonatomic) NSInteger ID;
-@property (strong, nonatomic) NSString* Name;
+@property (copy, nonatomic) NSString* Name;
 @property (strong, nonatomic) NSMutableArray* Departments;
 @property (strong, nonatomic) NSMutableArray* Employees;
 
-- (NSMutableArray*) parseChild:(NSArray*) dic : (NSInteger) parentID;
+- (NSMutableArray*) parseChild:(NSArray*) dic;
 - (Department*) parseData:(NSDictionary*) dic;
 
 @end

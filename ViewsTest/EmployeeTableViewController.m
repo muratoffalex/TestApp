@@ -8,6 +8,8 @@
 
 #import "EmployeeTableViewController.h"
 #import "DataManager.h"
+#import "InfoEmployeeTableCell.h"
+#import "ImageEmployeeTableCell.h"
 
 @interface EmployeeTableViewController ()
 
@@ -15,12 +17,23 @@
 
 @implementation EmployeeTableViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
     [tempImageView setFrame: self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
+    
+    [self.tableView registerClass: [InfoEmployeeTableCell class] forCellReuseIdentifier:@"TableCell"];
     
     //self.navigationItem.title = self.Name;
     self.navigationItem.title = @"Сотрудник";
@@ -48,7 +61,6 @@
     _photoImageView.layer.cornerRadius = _photoImageView.frame.size.width / 2;
     _photoImageView.clipsToBounds = YES;
     [self imageDownload];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,8 +109,45 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return self.countRow;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"TableCell";
+    InfoEmployeeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[InfoEmployeeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    switch (indexPath.row) {
+        case 0:
+            // TODO: Image for employee info
+//            ImageEmployeeTableCell *imageCell = [[ImageEmployeeTableCell alloc] init];
+//
+//            cell = imageCell;
+            
+            break;
+        case 1:
+            cell.title.text = @"ID";
+            cell.descrip.text = [NSString stringWithFormat:@"%ld", _ID];
+            break;
+        case 2:
+            cell.title.text = @"Имя";
+            cell.descrip.text = [NSString stringWithFormat:@"%@", _Name];
+            break;
+        case 3:
+            cell.title.text = @"Должность";
+            cell.descrip.text = [NSString stringWithFormat:@"%@", _Title];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
 }
 
 - (void) back:(id) sender {
@@ -130,11 +179,32 @@
     }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *headerTitle;
+    if (section==0) {
+        headerTitle = @"Информация";
+    }
+    return headerTitle;
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
         return CGFLOAT_MIN;
     return tableView.sectionHeaderHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        tableView.rowHeight = 197;
+    } else if (indexPath.row == 3) {
+        tableView.rowHeight = 80;
+    } else {
+        tableView.rowHeight = 60;
+    }
+    
+    return tableView.rowHeight;
 }
 
 //

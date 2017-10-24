@@ -12,8 +12,8 @@
 
 + (DataManager *)sharedInstance;
 
-@property (strong, nonatomic) NSString* login;
-@property (strong, nonatomic) NSString* password;
+@property (copy, nonatomic) NSString* login;
+@property (copy, nonatomic) NSString* password;
 @property (assign, nonatomic) BOOL status;
 
 

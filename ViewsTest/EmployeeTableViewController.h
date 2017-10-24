@@ -11,18 +11,17 @@
 @interface EmployeeTableViewController : UITableViewController <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 
 @property (assign, nonatomic) NSInteger ID;
-@property (strong, nonatomic) NSString* Name;
-@property (strong, nonatomic) NSString* Title;
-@property (strong, nonatomic) NSString* Email;
-@property (strong, nonatomic) NSString* Phone;
-@property (strong, nonatomic) NSString* parentName;
+@property (copy, nonatomic) NSString* Name;
+@property (copy, nonatomic) NSString* Title;
+@property (copy, nonatomic) NSString* Email;
+@property (copy, nonatomic) NSString* Phone;
+@property (copy, nonatomic) NSString* parentName;
 
 @property (assign, nonatomic) NSInteger countRow;
 
 @property (retain, nonatomic) NSMutableData* imageData;
 @property (strong, nonatomic) UIImage* downloadedImage;
 @property (weak, nonatomic) IBOutlet UIProgressView *photoDownloadProgress;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *idLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

@@ -11,12 +11,11 @@
 @interface Employee : NSObject
 
 @property (assign, nonatomic) NSInteger ID;
-@property (strong, nonatomic) NSString* Name;
-@property (strong, nonatomic) NSString* Title;
-@property (strong, nonatomic) NSString* Email;
-@property (strong, nonatomic) NSString* Phone;
-@property (assign, nonatomic) NSInteger ParentID;
+@property (copy, nonatomic) NSString* Name;
+@property (copy, nonatomic) NSString* Title;
+@property (copy, nonatomic) NSString* Email;
+@property (copy, nonatomic) NSString* Phone;
 
-- (NSMutableArray*) parseEmployee : (NSObject*) Employee : (NSInteger) ParentID;
+- (NSMutableArray*) parseEmployee : (NSObject*) Employee;
 
 @end

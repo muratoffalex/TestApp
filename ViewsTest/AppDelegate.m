@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "TestViewController.h"
 #import "DataManager.h"
+#import "MainNavigationController.h"
+#import "LoginTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,11 +27,26 @@
     
     [[DataManager sharedInstance] loadUserData];
     
+    LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    MainNavigationController *mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
+    
+    //BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
+//    if (logined) {
+//        TestViewController* testView = [[TestViewController alloc] init];
+//        mainNav = [[MainNavigationController alloc] initWithRootViewController:testView];
+//    } else {
+//        LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//        mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
+//    }
+    
+    self.window.rootViewController = mainNav;
+    
 //    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    UIStoryboard* storyboardLogin = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSInteger status = [defaults integerForKey:@"status"];
-//    BOOL logined = status ? 1 : 0;
+////    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+////    NSInteger status = [defaults integerForKey:@"status"];
+    
+//    BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
 //
 //    if (!logined) {
 //        self.window.rootViewController = [storyboardLogin instantiateViewControllerWithIdentifier:@"loginNav"];

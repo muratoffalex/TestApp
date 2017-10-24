@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Test View Controller-->
+        <!--View Controller-->
         <scene sceneID="Wbx-bG-6RM">
             <objects>
-                <viewController storyboardIdentifier="TestViewController" id="Crq-ox-JFf" customClass="TestViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" id="Crq-ox-JFf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qah-ZC-Pww"/>
                         <viewControllerLayoutGuide type="bottom" id="R87-Eu-RTI"/>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="100" y="-290"/>
         </scene>
-        <!--Employee Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="kds-xr-Pvb">
             <objects>
-                <tableViewController storyboardIdentifier="EmployeeTableViewController" id="eCI-9V-9iq" customClass="EmployeeTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EmployeeTableViewController" id="eCI-9V-9iq" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ASs-LY-3Sb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,9 +79,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-Tm-d7T">
                                                     <rect key="frame" x="67" y="7" width="185" height="181"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="181" id="VwV-MF-4Wu"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="o6x-Ni-fU0"/>
-                                                        <constraint firstAttribute="width" constant="185" id="tzt-LL-s2g"/>
+                                                        <constraint firstAttribute="width" constant="185" id="BG4-lX-42C"/>
+                                                        <constraint firstAttribute="height" constant="181" id="kpA-nH-lWo"/>
                                                     </constraints>
                                                 </imageView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OGH-Hi-w5m">
@@ -92,13 +91,11 @@
                                                 </progressView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DQT-Tm-d7T" firstAttribute="top" secondItem="w1L-It-3io" secondAttribute="top" constant="7" id="7Cf-di-tPr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="OGH-Hi-w5m" secondAttribute="trailing" constant="77" id="7gT-zL-36q"/>
+                                                <constraint firstItem="DQT-Tm-d7T" firstAttribute="top" secondItem="w1L-It-3io" secondAttribute="top" constant="7" id="8n3-VQ-42s"/>
+                                                <constraint firstItem="DQT-Tm-d7T" firstAttribute="centerX" secondItem="w1L-It-3io" secondAttribute="centerX" id="BBh-K5-i7a"/>
                                                 <constraint firstItem="OGH-Hi-w5m" firstAttribute="top" secondItem="w1L-It-3io" secondAttribute="topMargin" constant="88" id="IT4-Rd-gcF"/>
                                                 <constraint firstItem="OGH-Hi-w5m" firstAttribute="leading" secondItem="w1L-It-3io" secondAttribute="leadingMargin" constant="77" id="ZgI-0g-Z72"/>
-                                                <constraint firstAttribute="trailing" secondItem="DQT-Tm-d7T" secondAttribute="trailing" constant="68" id="bVm-UG-hQC"/>
-                                                <constraint firstAttribute="bottom" secondItem="DQT-Tm-d7T" secondAttribute="bottom" constant="8.5" id="bpF-tv-ojv"/>
-                                                <constraint firstItem="DQT-Tm-d7T" firstAttribute="leading" secondItem="w1L-It-3io" secondAttribute="leading" constant="67" id="yXB-va-WAe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -155,7 +152,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-9b-OZf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="имя" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-9b-OZf">
                                                     <rect key="frame" x="19" y="30" width="271" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Hed-yL-pRD"/>

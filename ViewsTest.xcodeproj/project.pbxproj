@@ -17,11 +17,21 @@
 		84CFF1E01F95BB6A00856964 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */; };
 		84CFF1E41F95C05C00856964 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CFF1E31F95C05C00856964 /* Login.storyboard */; };
 		84CFF1E71F95CA2700856964 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF1E61F95CA2700856964 /* DataManager.m */; };
+		84DF67041F9F1490005EF760 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF67021F9F1490005EF760 /* MainNavigationController.m */; };
+		84DF67081F9F26A2005EF760 /* LoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF67071F9F26A2005EF760 /* LoginTableCell.m */; };
+		84DF670B1F9F2779005EF760 /* RememberTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF670A1F9F2779005EF760 /* RememberTableCell.m */; };
+		84DF670E1F9F27D8005EF760 /* PassTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF670D1F9F27D8005EF760 /* PassTableCell.m */; };
+		84DF67111F9F281D005EF760 /* EntryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF67101F9F281D005EF760 /* EntryTableCell.m */; };
+		84DF671C1F9F5A16005EF760 /* InfoEmployeeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF671B1F9F5A16005EF760 /* InfoEmployeeTableCell.m */; };
+		84DF671F1F9F6AFF005EF760 /* ImageEmployeeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF671E1F9F6AFB005EF760 /* ImageEmployeeTableCell.m */; };
 		84F17F2F1F8B5FC900A87C57 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F17F2E1F8B5FC900A87C57 /* Employee.m */; };
 		84F17F321F8B5FD300A87C57 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F17F311F8B5FD300A87C57 /* Department.m */; };
+		8898D3B6CE4A7D0B5335AB28 /* libPods-ViewsTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B4936665FE0775DB09C06B /* libPods-ViewsTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25B4936665FE0775DB09C06B /* libPods-ViewsTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ViewsTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DEE5FD4C611499F91D382C6 /* Pods-ViewsTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewsTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViewsTest/Pods-ViewsTest.release.xcconfig"; sourceTree = "<group>"; };
 		8438E9EB1F8633E400404CB1 /* ViewsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8438E9EF1F8633E400404CB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8438E9F11F8633E400404CB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,11 +44,27 @@
 		8438EA151F86590000404CB1 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		8452964D1F948499006B6347 /* EmployeeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmployeeTableViewController.h; sourceTree = "<group>"; };
 		8452964E1F948499006B6347 /* EmployeeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmployeeTableViewController.m; sourceTree = "<group>"; };
+		84829A0B1F99E0300011436E /* Masonry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
 		84CFF1DE1F95BB6A00856964 /* LoginTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		84CFF1E31F95C05C00856964 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84CFF1E51F95CA2700856964 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		84CFF1E61F95CA2700856964 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		84D995C5CEF800F4CB424120 /* Pods-ViewsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewsTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViewsTest/Pods-ViewsTest.debug.xcconfig"; sourceTree = "<group>"; };
+		84DF67011F9F1490005EF760 /* MainNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		84DF67021F9F1490005EF760 /* MainNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		84DF67061F9F26A2005EF760 /* LoginTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableCell.h; sourceTree = "<group>"; };
+		84DF67071F9F26A2005EF760 /* LoginTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableCell.m; sourceTree = "<group>"; };
+		84DF67091F9F2779005EF760 /* RememberTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RememberTableCell.h; sourceTree = "<group>"; };
+		84DF670A1F9F2779005EF760 /* RememberTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RememberTableCell.m; sourceTree = "<group>"; };
+		84DF670C1F9F27D8005EF760 /* PassTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassTableCell.h; sourceTree = "<group>"; };
+		84DF670D1F9F27D8005EF760 /* PassTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassTableCell.m; sourceTree = "<group>"; };
+		84DF670F1F9F281D005EF760 /* EntryTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryTableCell.h; sourceTree = "<group>"; };
+		84DF67101F9F281D005EF760 /* EntryTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryTableCell.m; sourceTree = "<group>"; };
+		84DF671A1F9F5A16005EF760 /* InfoEmployeeTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoEmployeeTableCell.h; sourceTree = "<group>"; };
+		84DF671B1F9F5A16005EF760 /* InfoEmployeeTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoEmployeeTableCell.m; sourceTree = "<group>"; };
+		84DF671D1F9F6AFB005EF760 /* ImageEmployeeTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageEmployeeTableCell.h; sourceTree = "<group>"; };
+		84DF671E1F9F6AFB005EF760 /* ImageEmployeeTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageEmployeeTableCell.m; sourceTree = "<group>"; };
 		84F17F2D1F8B5FC900A87C57 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		84F17F2E1F8B5FC900A87C57 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		84F17F301F8B5FD300A87C57 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
@@ -50,17 +76,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8898D3B6CE4A7D0B5335AB28 /* libPods-ViewsTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6979AE16E4877A19286AF2FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25B4936665FE0775DB09C06B /* libPods-ViewsTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83BE9FE12210EB80C7B34452 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84D995C5CEF800F4CB424120 /* Pods-ViewsTest.debug.xcconfig */,
+				6DEE5FD4C611499F91D382C6 /* Pods-ViewsTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8438E9E21F8633E400404CB1 = {
 			isa = PBXGroup;
 			children = (
 				8438E9ED1F8633E400404CB1 /* ViewsTest */,
 				8438E9EC1F8633E400404CB1 /* Products */,
+				83BE9FE12210EB80C7B34452 /* Pods */,
+				6979AE16E4877A19286AF2FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,16 +121,21 @@
 		8438E9ED1F8633E400404CB1 /* ViewsTest */ = {
 			isa = PBXGroup;
 			children = (
-				84CFF1E51F95CA2700856964 /* DataManager.h */,
-				84CFF1E61F95CA2700856964 /* DataManager.m */,
+				84DF67011F9F1490005EF760 /* MainNavigationController.h */,
+				84DF67021F9F1490005EF760 /* MainNavigationController.m */,
 				84CFF1DE1F95BB6A00856964 /* LoginTableViewController.h */,
 				84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */,
 				8452964D1F948499006B6347 /* EmployeeTableViewController.h */,
 				8452964E1F948499006B6347 /* EmployeeTableViewController.m */,
+				84DF67161F9F52B5005EF760 /* EmployeeTableCell */,
+				84DF66F71F9F148F005EF760 /* LoginTableCells */,
+				84CFF1E51F95CA2700856964 /* DataManager.h */,
+				84CFF1E61F95CA2700856964 /* DataManager.m */,
 				84F17F301F8B5FD300A87C57 /* Department.h */,
 				84F17F311F8B5FD300A87C57 /* Department.m */,
 				84F17F2D1F8B5FC900A87C57 /* Employee.h */,
 				84F17F2E1F8B5FC900A87C57 /* Employee.m */,
+				84829A0B1F99E0300011436E /* Masonry.h */,
 				8438EA141F86590000404CB1 /* TestViewController.h */,
 				8438EA151F86590000404CB1 /* TestViewController.m */,
 				8438E9F11F8633E400404CB1 /* AppDelegate.h */,
@@ -107,6 +158,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		84DF66F71F9F148F005EF760 /* LoginTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				84DF67061F9F26A2005EF760 /* LoginTableCell.h */,
+				84DF67071F9F26A2005EF760 /* LoginTableCell.m */,
+				84DF67091F9F2779005EF760 /* RememberTableCell.h */,
+				84DF670A1F9F2779005EF760 /* RememberTableCell.m */,
+				84DF670C1F9F27D8005EF760 /* PassTableCell.h */,
+				84DF670D1F9F27D8005EF760 /* PassTableCell.m */,
+				84DF670F1F9F281D005EF760 /* EntryTableCell.h */,
+				84DF67101F9F281D005EF760 /* EntryTableCell.m */,
+			);
+			path = LoginTableCells;
+			sourceTree = "<group>";
+		};
+		84DF67161F9F52B5005EF760 /* EmployeeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				84DF671A1F9F5A16005EF760 /* InfoEmployeeTableCell.h */,
+				84DF671B1F9F5A16005EF760 /* InfoEmployeeTableCell.m */,
+				84DF671D1F9F6AFB005EF760 /* ImageEmployeeTableCell.h */,
+				84DF671E1F9F6AFB005EF760 /* ImageEmployeeTableCell.m */,
+			);
+			path = EmployeeTableCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8438EA021F8633E400404CB1 /* Build configuration list for PBXNativeTarget "ViewsTest" */;
 			buildPhases = (
+				A0CC2D76EE77BAA529E5E655 /* [CP] Check Pods Manifest.lock */,
 				8438E9E71F8633E400404CB1 /* Sources */,
 				8438E9E81F8633E400404CB1 /* Frameworks */,
 				8438E9E91F8633E400404CB1 /* Resources */,
+				2627D5B41EEE21D75EC8F893 /* [CP] Embed Pods Frameworks */,
+				D82E06BA41B1C205526ACEFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,6 +256,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2627D5B41EEE21D75EC8F893 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ViewsTest/Pods-ViewsTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0CC2D76EE77BAA529E5E655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ViewsTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D82E06BA41B1C205526ACEFB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ViewsTest/Pods-ViewsTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8438E9E71F8633E400404CB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -186,8 +317,15 @@
 				84CFF1E71F95CA2700856964 /* DataManager.m in Sources */,
 				8438E9F01F8633E400404CB1 /* main.m in Sources */,
 				84CFF1E01F95BB6A00856964 /* LoginTableViewController.m in Sources */,
+				84DF671F1F9F6AFF005EF760 /* ImageEmployeeTableCell.m in Sources */,
+				84DF67041F9F1490005EF760 /* MainNavigationController.m in Sources */,
 				8452964F1F948499006B6347 /* EmployeeTableViewController.m in Sources */,
 				8438EA161F86590000404CB1 /* TestViewController.m in Sources */,
+				84DF671C1F9F5A16005EF760 /* InfoEmployeeTableCell.m in Sources */,
+				84DF67081F9F26A2005EF760 /* LoginTableCell.m in Sources */,
+				84DF67111F9F281D005EF760 /* EntryTableCell.m in Sources */,
+				84DF670E1F9F27D8005EF760 /* PassTableCell.m in Sources */,
+				84DF670B1F9F2779005EF760 /* RememberTableCell.m in Sources */,
 				84F17F321F8B5FD300A87C57 /* Department.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +458,7 @@
 		};
 		8438EA031F8633E400404CB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D995C5CEF800F4CB424120 /* Pods-ViewsTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -334,6 +473,7 @@
 		};
 		8438EA041F8633E400404CB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DEE5FD4C611499F91D382C6 /* Pods-ViewsTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

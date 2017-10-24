@@ -10,7 +10,7 @@
 
 @implementation Employee
 
-- (NSMutableArray*) parseEmployee : (NSDictionary*) Emplo : (NSInteger) parentID {
+- (NSMutableArray*) parseEmployee : (NSDictionary*) Emplo{
     
     NSMutableArray* employees = [[NSMutableArray alloc] init];
     
@@ -21,7 +21,6 @@
             if ([emp respondsToSelector:NSSelectorFromString(key)]) {
                 [emp setValue:[dic valueForKey:key] forKey:key];
             }
-            [emp setParentID:parentID];
         }
         
         //NSLog(@"ID = %ld, Name = %@, Title = %@, Email = %@, Phone = %@", emp.ID, emp.Name, emp.Title, emp.Email, emp.Phone); // das

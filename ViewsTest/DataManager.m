@@ -49,13 +49,12 @@
 }
 
 - (void) loadUserData {
-    
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults boolForKey:@"status"]) {
-        self.status = [defaults boolForKey:@"status"];
-        self.login = [defaults stringForKey:@"login"];
-        self.password = [defaults stringForKey:@"password"];
-    }
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults boolForKey:@"status"]) {
+            self.status = [defaults boolForKey:@"status"];
+            self.login = [defaults stringForKey:@"login"];
+            self.password = [defaults stringForKey:@"password"];
+        }
 }
 
 @end

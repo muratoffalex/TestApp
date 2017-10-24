@@ -11,10 +11,11 @@
 #import "Employee.h"
 #import "EmployeeTableViewController.h"
 #import "DataManager.h"
+#import "Masonry.h"
+#import "AppDelegate.h"
 
 @interface TestViewController ()
 
-@property (strong, nonatomic) NSMutableArray* data;
 @property (strong, nonatomic) NSMutableArray* currentArray;
 
 @end
@@ -24,18 +25,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([self.navigationController.viewControllers count] == 2) {
-        _root = self;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectNull
+                                              style:UITableViewStyleGrouped];
+    [_tableView sizeToFit];
+    [self.view addSubview:_tableView];
+    
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@-35);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+    
+    if ([self.navigationController.viewControllers count] <= 2) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self loadData:nil];
         });
     }
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
     [tempImageView setFrame: self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
     
-    self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     
     if ([self.navigationController.viewControllers count] <= 2) {
         self.navigationItem.title = @"Отделения";
@@ -71,18 +86,11 @@
 
 #pragma mark - UITableViewController
 
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0)
-        return CGFLOAT_MIN;
-    return tableView.sectionHeaderHeight;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if ([[self.currentArray objectAtIndex:indexPath.row] isKindOfClass:[Employee class]]) {
-        EmployeeTableViewController* evc = [self.storyboard instantiateViewControllerWithIdentifier:@"EmployeeTableViewController"];
+        EmployeeTableViewController* evc = [[EmployeeTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         
         Employee* emp = [[Employee alloc] init];
         emp = [self.currentArray objectAtIndex:indexPath.row];
@@ -98,7 +106,7 @@
         
     } else if ([[self.currentArray objectAtIndex:indexPath.row] isKindOfClass:[Department class]]) {
         
-        TestViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+        TestViewController* vc = [TestViewController new];
         
         Department* dep = [[Department alloc] init];
         dep = [self.currentArray objectAtIndex:indexPath.row];
@@ -115,6 +123,10 @@
         }
     }
 
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -183,11 +195,18 @@
             }
             
             self.currentArray = departments;
+            NSLog(@"%@", [DataManager sharedInstance].login);
+            
+            NSLog(@"%ld", [self.currentArray count]);
             
             NSMutableArray* newPaths = [NSMutableArray array];
             for (int i = 0; i < [self.currentArray count]; i++) {
                 [newPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
+            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//            });
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView beginUpdates];
@@ -201,6 +220,20 @@
     [task resume];
             
 }
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    NSString *headerTitle;
+//    if (section==0) {
+//        headerTitle = @"Авторизация";
+//    }
+//    return headerTitle;
+//}
+//
+//- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return CGFLOAT_MIN;
+//}
 
 #pragma mark - Other functions
 
