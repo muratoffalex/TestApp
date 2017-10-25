@@ -10,11 +10,20 @@
 
 @implementation ImageEmployeeTableCell
 
+@synthesize rowHeight;
+
 - (id)init
 {
     self = [super init];
     if (self) {
+        
+        rowHeight = 197;
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _image = [UIImageView new];
+        _image.layer.cornerRadius = 92.5;
+        _image.clipsToBounds = YES;
         [_image sizeToFit];
         
         [self addSubview:_image];
@@ -25,6 +34,20 @@
             make.width.equalTo(@185);
             make.height.equalTo(@185);
         }];
+        
+        _photoDownloadProgress = [UIProgressView new];
+        _photoDownloadProgress.progress = 0.f;
+        [_photoDownloadProgress sizeToFit];
+        
+        [self addSubview:_photoDownloadProgress];
+        
+        [_photoDownloadProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(@0);
+            make.centerY.equalTo(@0);
+            make.width.equalTo(@150);
+            make.height.equalTo(@3);
+        }];
+        
     }
     return self;
 }

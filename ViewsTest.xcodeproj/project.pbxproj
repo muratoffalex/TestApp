@@ -45,6 +45,7 @@
 		8452964D1F948499006B6347 /* EmployeeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmployeeTableViewController.h; sourceTree = "<group>"; };
 		8452964E1F948499006B6347 /* EmployeeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmployeeTableViewController.m; sourceTree = "<group>"; };
 		84829A0B1F99E0300011436E /* Masonry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		84C7004A1FA052EF00EB4C44 /* RowHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RowHeight.h; sourceTree = "<group>"; };
 		84CFF1DE1F95BB6A00856964 /* LoginTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		84CFF1E31F95C05C00856964 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 				84DF670D1F9F27D8005EF760 /* PassTableCell.m */,
 				84DF670F1F9F281D005EF760 /* EntryTableCell.h */,
 				84DF67101F9F281D005EF760 /* EntryTableCell.m */,
+				84C7004A1FA052EF00EB4C44 /* RowHeight.h */,
 			);
 			path = LoginTableCells;
 			sourceTree = "<group>";

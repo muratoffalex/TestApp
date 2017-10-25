@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "RowHeight.h"
 
-@interface RememberTableCell : UITableViewCell
+@interface RememberTableCell : UITableViewCell <RowHeight>
 
 @property (nonatomic) UISwitch *rememberSwitch;
 

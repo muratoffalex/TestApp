@@ -10,10 +10,14 @@
 
 @implementation EntryTableCell
 
+@synthesize rowHeight;
+
 - (id)init
 {
     self = [super init];
     if (self) {
+        
+        self.rowHeight = 70;
         
         [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.8]];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -32,6 +36,7 @@
             make.left.equalTo(@25);
             make.top.equalTo(@10);
         }];
+        
     }
     return self;
 }

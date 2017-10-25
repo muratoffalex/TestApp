@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "RowHeight.h"
 
-@interface ImageEmployeeTableCell : UITableViewCell
+@interface ImageEmployeeTableCell : UITableViewCell <RowHeight>
 
 @property (retain, nonatomic) UIImageView *image;
+@property (retain, nonatomic) UIProgressView *photoDownloadProgress;
 
 @end

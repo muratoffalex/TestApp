@@ -37,6 +37,9 @@
     
     return self.imageData;
 }
+
+#pragma mark - Working with data
+
 - (void) saveUserData:(BOOL) status {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -56,5 +59,66 @@
             self.password = [defaults stringForKey:@"password"];
         }
 }
+
+#pragma mark - Get and deserialization data
+
+- (void) getLoginData : (NSString*) login : (NSString*) password {
+    
+    NSString* formatURL = [NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/Hello?login=%@&password=%@",
+                           login,
+                           password];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:formatURL]];
+    [request setHTTPMethod:@"GET"];
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,NSError *error) {
+        if (data == nil) {
+            //[self printCannotLoad];
+            NSLog(@"kek");
+        } else {
+           [self handleData:data];
+        }
+    }];
+    
+    [task resume];
+}
+
+- (void) handleData: (NSData*) data {
+    NSError *error = nil;
+    id object = [NSJSONSerialization
+                 JSONObjectWithData:data
+                 options:0
+                 error:&error];
+    
+    if(error) {
+        NSLog(@"Error NSJSONSerilazation");
+        return;
+    }
+    
+    if ([object isKindOfClass:[NSDictionary class]]) {
+        NSString* success = [object valueForKey:@"Success"];
+        self.access = [[NSString stringWithFormat:@"%@", success] isEqualToString:@"1"] ? YES : NO;
+    }
+}
+
+#pragma mark - Other helpful functions
+
+- (void) showPopUp: (NSString*) title : (NSString*) message : (NSString*) actionTitle : (UIViewController*) view {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionTitle
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+    [alertController addAction:actionCancel];
+    [view presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) printCannotLoad:(UIViewController*) view {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [[DataManager sharedInstance] showPopUp:@"Ошибка" : @"Ошибка при выполнении запроса. Попробуйте снова." : @"ОК": view];
+    });
+}
+
 
 @end

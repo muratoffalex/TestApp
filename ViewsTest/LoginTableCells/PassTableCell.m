@@ -10,10 +10,15 @@
 
 @implementation PassTableCell
 
+@synthesize rowHeight;
+
 - (id)init
 {
     self = [super init];
     if (self) {
+        
+        self.rowHeight = 60;
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         

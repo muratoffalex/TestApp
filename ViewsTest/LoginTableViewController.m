@@ -22,6 +22,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIButton* testButton = [UIButton new];
+    
+    [testButton setTitle:@"Быстрый вход" forState:UIControlStateNormal];
+    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    testButton.backgroundColor = [UIColor redColor];
+    testButton.layer.cornerRadius = 10;
+    testButton.clipsToBounds = YES;
+    [testButton sizeToFit];
+    
+    [self.view addSubview:testButton];
+    [testButton addTarget:self
+                   action:@selector(quickEntry:)
+         forControlEvents:UIControlEventTouchUpInside];
+    
+    [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(@0);
+        //make.width.equalTo(@200);
+        make.height.equalTo(@40);
+        make.leadingMargin.equalTo(@80);
+        make.top.equalTo(@245);
+    }];
+    
     UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
     [tempImageView setFrame: self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
@@ -33,17 +55,19 @@
     _passCell = [[PassTableCell alloc] init];
     
     _entryCell = [[EntryTableCell alloc] init];
-    [_entryCell.entryButton addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_entryCell.entryButton addTarget:self
+                               action:@selector(loginButtonTapped:)
+                     forControlEvents:UIControlEventTouchUpInside];
     
     _rememberCell = [[RememberTableCell alloc] init];
     
     arrayCells = @[_loginCell, _passCell, _entryCell, _rememberCell];
     
-    _loginCell.loginTextField.text = @"test_user";
-    _passCell.passTextField.text = @"test_pass";
-    
     self.loginCell.loginTextField.delegate = self;
     self.passCell.passTextField.delegate = self;
+    
+    self.loginCell.loginTextField.text = @"test_user";
+    self.passCell.passTextField.text = @"test_pass";
     
     if ([DataManager sharedInstance].status == 1) {
         TestViewController * detail = [[TestViewController alloc] init];
@@ -57,6 +81,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) quickEntry: (UIButton*) sender {
+    [DataManager sharedInstance].login = @"test_user";
+    [DataManager sharedInstance].password = @"test_pass";
+    
+    BOOL isOn = [_rememberCell.rememberSwitch isOn];
+    [[DataManager sharedInstance] saveUserData:isOn];
+    
+    TestViewController * detail = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
+    
+}
+
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +101,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:cellIdentifier];
     }
     
     cell = [arrayCells objectAtIndex:indexPath.row];
@@ -81,8 +119,7 @@
     return [arrayCells count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:
-(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString *headerTitle;
     if (section==0) {
         headerTitle = @"Авторизация";
@@ -96,24 +133,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            tableView.rowHeight = 60;
-            break;
-        case 1:
-            tableView.rowHeight = 60;
-            break;
-        case 2:
-            tableView.rowHeight = 70;
-            break;
-        case 3:
-            tableView.rowHeight = 50;
-            break;
-        default:
-            break;
-    }
-    
-    return tableView.rowHeight;
+    return [[arrayCells objectAtIndex:indexPath.row] rowHeight];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -147,12 +167,12 @@
 
 #pragma mark - Click button login
 
-- (IBAction)loginButtonTapped:(UIButton *)sender {
-
+- (void)loginButtonTapped:(UIButton *)sender {
+    
     [self.tableView endEditing:YES];
-
+    
     if (![_loginCell.loginTextField.text isEqualToString:@""] && ![_passCell.passTextField.text isEqualToString:@""]) {
-
+        
         NSString* formatURL = [NSString stringWithFormat:@"https://contact.taxsee.com/Contacts.svc/Hello?login=%@&password=%@", _loginCell.loginTextField.text, _passCell.passTextField.text];
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
         [request setURL:[NSURL URLWithString:formatURL]];
@@ -160,15 +180,15 @@
         NSURLSession* session = [NSURLSession sharedSession];
         NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,NSError *error) {
             if (data == nil) {
-                [self printCannotLoad];
+                [[DataManager sharedInstance] printCannotLoad:self];
             } else {
                 [self getAnswer:data];
             }
         }];
-
+        
         [task resume];
     } else {
-        [self showPopUp:@"Ошибка" : @"Логин или пароль не могут быть пустыми!" : @"Повторить ввод"];
+        [[DataManager sharedInstance] showPopUp:@"Ошибка" : @"Логин или пароль не могут быть пустыми!" : @"Повторить ввод": self];
     }
 }
 
@@ -178,58 +198,37 @@
                  JSONObjectWithData:jsonData
                  options:0
                  error:&error];
-
+    
     if(error) {
-
+        
         return;
     }
-
+    
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSString* success = [object valueForKey:@"Success"];
-
+        
         dispatch_sync(dispatch_get_main_queue(), ^{
             if ([[NSString stringWithFormat:@"%@", success] isEqual: @"1"]) {
-
+                
                 [DataManager sharedInstance].login = _loginCell.loginTextField.text;
                 [DataManager sharedInstance].password = _passCell.passTextField.text;
-
+                
                 _loginCell.loginTextField.text = @"";
                 _passCell.passTextField.text = @"";
-
+                
                 BOOL isOn = [_rememberCell.rememberSwitch isOn];
                 [[DataManager sharedInstance] saveUserData:isOn];
-
+                
                 NSLog(@"SUCCESS");
                 TestViewController * detail = [[TestViewController alloc] init];
                 [self.navigationController pushViewController:detail animated:YES];
             } else {
-                [self showPopUp:@"Ошибка" : @"Неправильный логин или пароль." : @"Повторить ввод"];
+                [[DataManager sharedInstance] showPopUp:@"Ошибка" : @"Неправильный логин или пароль." : @"Повторить ввод": self];
             }
-
+            
         });
     } else {
     }
 }
-
-#pragma mark - Other functions
-
-- (void) printCannotLoad {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self showPopUp:@"Ошибка" : @"Ошибка при выполнении запроса. Попробуйте снова." : @"ОК"];
-    });
-}
-
-- (void) showPopUp: (NSString*) title : (NSString*) message : (NSString*) actionTitle{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionTitle
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:nil];
-    [alertController addAction:actionCancel];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
-
 
 @end

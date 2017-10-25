@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "RowHeight.h"
 
-@interface EntryTableCell : UITableViewCell
+@interface EntryTableCell : UITableViewCell <RowHeight>
 
 @property (nonatomic) UIButton *entryButton;
 

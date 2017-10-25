@@ -77,13 +77,6 @@
     [super didReceiveMemoryWarning];
 }
 
-//- (void) viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:YES];
-//
-//    self.navigationController.navigationBar.prefersLargeTitles = YES;
-//
-//}
-
 #pragma mark - UITableViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,7 +112,7 @@
             vc.currentArray = dep.Employees;
             [self.navigationController pushViewController:vc animated:YES];
         } else {
-            [self showPopUp:@"Оповещение" : @"Отдел пуст" : @"ОК"];
+            [[DataManager sharedInstance] showPopUp:@"Оповещение" : @"Отдел пуст" : @"ОК": self];
         }
     }
 
@@ -175,7 +168,7 @@
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,NSError *error) {
         if (data == nil) {
-            [self printCannotLoad];
+            [[DataManager sharedInstance] printCannotLoad:self];
         } else {
             
             NSError *error = nil;
@@ -185,7 +178,6 @@
                                         error:&error];
             
             NSMutableArray* departments = [[NSMutableArray alloc] init];
-            
             NSArray* departmentsInfo = [parsedJson valueForKeyPath:@"Departments"];
             
             for (NSDictionary* departmentsDic in departmentsInfo) {
@@ -195,18 +187,11 @@
             }
             
             self.currentArray = departments;
-            NSLog(@"%@", [DataManager sharedInstance].login);
-            
-            NSLog(@"%ld", [self.currentArray count]);
             
             NSMutableArray* newPaths = [NSMutableArray array];
             for (int i = 0; i < [self.currentArray count]; i++) {
                 [newPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
-            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//            });
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView beginUpdates];
@@ -221,38 +206,7 @@
             
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    NSString *headerTitle;
-//    if (section==0) {
-//        headerTitle = @"Авторизация";
-//    }
-//    return headerTitle;
-//}
-//
-//- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return CGFLOAT_MIN;
-//}
-
 #pragma mark - Other functions
-
-- (void) printCannotLoad {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self showPopUp:@"Ошибка" : @"Ошибка при выполнении запроса. Попробуйте снова." : @"ОК"];
-    });
-}
-
-- (void) showPopUp: (NSString*) title : (NSString*) message : (NSString*) actionTitle{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionTitle
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:nil];
-    [alertController addAction:actionCancel];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
 
 - (void) logout:(id)sender {
     NSString *storage = [[NSBundle mainBundle] bundleIdentifier];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "RowHeight.h"
 
-@interface PassTableCell : UITableViewCell
+@interface PassTableCell : UITableViewCell <RowHeight>
 
 @property (nonatomic) UITextField *passTextField;
 

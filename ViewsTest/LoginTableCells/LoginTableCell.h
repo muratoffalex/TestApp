@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "RowHeight.h"
 
-@interface LoginTableCell : UITableViewCell
+@interface LoginTableCell : UITableViewCell <RowHeight>
 
 @property (nonatomic) UITextField *loginTextField;
 

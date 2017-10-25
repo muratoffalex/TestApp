@@ -9,21 +9,14 @@
 #import "EmployeeTableViewController.h"
 #import "DataManager.h"
 #import "InfoEmployeeTableCell.h"
-#import "ImageEmployeeTableCell.h"
 
 @interface EmployeeTableViewController ()
 
 @end
 
 @implementation EmployeeTableViewController
-
-- (id)init
 {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
+    NSArray *arrayCells;
 }
 
 - (void)viewDidLoad {
@@ -33,33 +26,37 @@
     [tempImageView setFrame: self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
     
-    [self.tableView registerClass: [InfoEmployeeTableCell class] forCellReuseIdentifier:@"TableCell"];
-    
-    //self.navigationItem.title = self.Name;
     self.navigationItem.title = @"Сотрудник";
     
-    _idLabel.text = [NSString stringWithFormat:@"%ld", self.ID];
-    _nameLabel.text = self.Name;
-    _titleLabel.text = self.Title;
-    
-    
-    self.countRow = 6;
-    if (self.Email == NULL) {
-        _emailLabel.text = @"Отсутствует";
-        _writeToEmailLabel.hidden = YES;
-    } else {
-        _emailLabel.text = self.Email;
+    if (self.Email == NULL || self.Email == nil) {
+        self.Email = @"Отсутствует";
     }
     
-    if (self.Phone == NULL) {
-        _phoneLabel.text = @"Отсутствует";
-        _callLabel.hidden = YES;
-    } else {
-        _phoneLabel.text = self.Phone;
+    if (self.Phone == NULL || self.Phone == nil) {
+        self.Phone = @"Отсутствует";
     }
     
-    _photoImageView.layer.cornerRadius = _photoImageView.frame.size.width / 2;
-    _photoImageView.clipsToBounds = YES;
+    NSString *ID = [NSString stringWithFormat:@"%ld", self.ID];
+    
+    _cellImage = [[ImageEmployeeTableCell alloc] init];
+    
+    InfoEmployeeTableCell *cellID = [[InfoEmployeeTableCell alloc] init];
+    [cellID setLabels: @"ID" : ID : nil];
+    
+    InfoEmployeeTableCell *cellName = [[InfoEmployeeTableCell alloc] init];
+    [cellName setLabels: @"Имя" : self.Name : nil];
+    
+    InfoEmployeeTableCell *cellTitle = [[InfoEmployeeTableCell alloc] init];
+    [cellTitle setLabels: @"Должность" : self.Title : nil];
+    
+    InfoEmployeeTableCell *cellEmail = [[InfoEmployeeTableCell alloc] init];
+    [cellEmail setLabels: @"Email" : self.Email : @"Написать"];
+    
+    InfoEmployeeTableCell *cellPhone = [[InfoEmployeeTableCell alloc] init];
+    [cellPhone setLabels: @"Телефон" : self.Phone : @"Позвонить"];
+    
+    arrayCells = @[_cellImage, cellID, cellName, cellTitle, cellEmail, cellPhone];
+    
     [self imageDownload];
 }
 
@@ -84,8 +81,8 @@
     NSData* data = [NSData dataWithContentsOfURL:location];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.photoDownloadProgress setHidden:YES];
-        [self.photoImageView setImage:[UIImage imageWithData:data]];
+        [_cellImage.photoDownloadProgress setHidden:YES];
+        [self.cellImage.image setImage:[UIImage imageWithData:data]];
     });
 }
 
@@ -93,7 +90,7 @@
     float progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.photoDownloadProgress setProgress:progress];
+        [_cellImage.photoDownloadProgress setProgress:progress];
     });
 }
 
@@ -110,42 +107,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.countRow;
+    return [arrayCells count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"TableCell";
-    InfoEmployeeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     
     if (cell == nil) {
-        cell = [[InfoEmployeeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    switch (indexPath.row) {
-        case 0:
-            // TODO: Image for employee info
-//            ImageEmployeeTableCell *imageCell = [[ImageEmployeeTableCell alloc] init];
-//
-//            cell = imageCell;
-            
-            break;
-        case 1:
-            cell.title.text = @"ID";
-            cell.descrip.text = [NSString stringWithFormat:@"%ld", _ID];
-            break;
-        case 2:
-            cell.title.text = @"Имя";
-            cell.descrip.text = [NSString stringWithFormat:@"%@", _Name];
-            break;
-        case 3:
-            cell.title.text = @"Должность";
-            cell.descrip.text = [NSString stringWithFormat:@"%@", _Title];
-            break;
-            
-        default:
-            break;
-    }
+    cell = [arrayCells objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -158,17 +133,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     switch (indexPath.row) {
-        case 5:
-            if (![_phoneLabel.text  isEqual: @"Отсутствует"]) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", _phoneLabel.text]] options:@{} completionHandler:^(BOOL success) {
+        case 4:
+            if (![self.Email  isEqual: @"Отсутствует"]) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", self.Email]] options:@{} completionHandler:^(BOOL success) {
                     if (!success) {
                         NSLog(@"Error");
                     }}];
             }
             break;
-        case 4:
-            if (![_emailLabel.text  isEqual: @"Отсутствует"]) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", _emailLabel.text]] options:@{} completionHandler:^(BOOL success) {
+        case 5:
+            if (![self.Phone  isEqual: @"Отсутствует"]) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", self.Phone]] options:@{} completionHandler:^(BOOL success) {
                     if (!success) {
                         NSLog(@"Error");
                     }}];
@@ -196,15 +171,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        tableView.rowHeight = 197;
-    } else if (indexPath.row == 3) {
-        tableView.rowHeight = 80;
+    
+    NSInteger rowHeight;
+    
+    if (indexPath.row == 3) {
+        rowHeight = 80;
     } else {
-        tableView.rowHeight = 60;
+        rowHeight = [[arrayCells objectAtIndex:indexPath.row] rowHeight];
     }
     
-    return tableView.rowHeight;
+    return rowHeight;
 }
 
 //

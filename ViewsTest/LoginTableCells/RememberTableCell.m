@@ -10,10 +10,14 @@
 
 @implementation RememberTableCell
 
+@synthesize rowHeight;
+
 - (id)init
 {
     self = [super init];
     if (self) {
+        
+        self.rowHeight = 50;
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         UIImageView* image = [UIImageView new];

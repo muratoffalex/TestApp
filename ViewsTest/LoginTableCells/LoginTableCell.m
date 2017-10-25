@@ -10,6 +10,8 @@
 
 @implementation LoginTableCell
 
+@synthesize rowHeight;
+
 - (id)init
 {
     self = [super init];
@@ -30,6 +32,8 @@
             make.left.equalTo(@20);
             make.top.equalTo(@8);
         }];
+        
+        self.rowHeight = 60;
     }
     return self;
 }

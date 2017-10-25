@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageEmployeeTableCell.h"
 
 @interface EmployeeTableViewController : UITableViewController <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 
@@ -21,17 +22,7 @@
 
 @property (retain, nonatomic) NSMutableData* imageData;
 @property (strong, nonatomic) UIImage* downloadedImage;
-@property (weak, nonatomic) IBOutlet UIProgressView *photoDownloadProgress;
 
-@property (weak, nonatomic) IBOutlet UILabel *idLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *emailCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *phoneCell;
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
-@property (weak, nonatomic) IBOutlet UILabel *writeToEmailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *callLabel;
+@property (strong, nonatomic) ImageEmployeeTableCell *cellImage;
 
 @end

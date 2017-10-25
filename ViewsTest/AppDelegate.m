@@ -30,7 +30,9 @@
     LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     MainNavigationController *mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
     
-    //BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
+//    MainNavigationController *mainNav;
+//
+//    BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
 //    if (logined) {
 //        TestViewController* testView = [[TestViewController alloc] init];
 //        mainNav = [[MainNavigationController alloc] initWithRootViewController:testView];
@@ -38,7 +40,7 @@
 //        LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 //        mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
 //    }
-    
+//
     self.window.rootViewController = mainNav;
     
 //    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
