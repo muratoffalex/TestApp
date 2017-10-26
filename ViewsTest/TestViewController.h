@@ -11,7 +11,7 @@
 
 @interface TestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSString *tabName;
+@property (nonatomic) NSString *tabName;
 
 @property (nonatomic) UITableView* tableView;
 

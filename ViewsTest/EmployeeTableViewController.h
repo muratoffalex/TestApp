@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageEmployeeTableCell.h"
+#import "DataManager.h"
+#import "InfoEmployeeTableCell.h"
 
 @interface EmployeeTableViewController : UITableViewController <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 
@@ -20,9 +22,9 @@
 
 @property (assign, nonatomic) NSInteger countRow;
 
-@property (retain, nonatomic) NSMutableData* imageData;
-@property (strong, nonatomic) UIImage* downloadedImage;
+@property (nonatomic) NSMutableData* imageData;
+@property (nonatomic) UIImage* downloadedImage;
 
-@property (strong, nonatomic) ImageEmployeeTableCell *cellImage;
+@property (nonatomic) ImageEmployeeTableCell *cellImage;
 
 @end

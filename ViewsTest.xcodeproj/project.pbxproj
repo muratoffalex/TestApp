@@ -122,14 +122,15 @@
 		8438E9ED1F8633E400404CB1 /* ViewsTest */ = {
 			isa = PBXGroup;
 			children = (
-				84DF67011F9F1490005EF760 /* MainNavigationController.h */,
-				84DF67021F9F1490005EF760 /* MainNavigationController.m */,
-				84CFF1DE1F95BB6A00856964 /* LoginTableViewController.h */,
-				84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */,
 				8452964D1F948499006B6347 /* EmployeeTableViewController.h */,
 				8452964E1F948499006B6347 /* EmployeeTableViewController.m */,
 				84DF67161F9F52B5005EF760 /* EmployeeTableCell */,
+				84CFF1DE1F95BB6A00856964 /* LoginTableViewController.h */,
+				84CFF1DF1F95BB6A00856964 /* LoginTableViewController.m */,
 				84DF66F71F9F148F005EF760 /* LoginTableCells */,
+				84C7004A1FA052EF00EB4C44 /* RowHeight.h */,
+				84DF67011F9F1490005EF760 /* MainNavigationController.h */,
+				84DF67021F9F1490005EF760 /* MainNavigationController.m */,
 				84CFF1E51F95CA2700856964 /* DataManager.h */,
 				84CFF1E61F95CA2700856964 /* DataManager.m */,
 				84F17F301F8B5FD300A87C57 /* Department.h */,
@@ -170,7 +171,6 @@
 				84DF670D1F9F27D8005EF760 /* PassTableCell.m */,
 				84DF670F1F9F281D005EF760 /* EntryTableCell.h */,
 				84DF67101F9F281D005EF760 /* EntryTableCell.m */,
-				84C7004A1FA052EF00EB4C44 /* RowHeight.h */,
 			);
 			path = LoginTableCells;
 			sourceTree = "<group>";

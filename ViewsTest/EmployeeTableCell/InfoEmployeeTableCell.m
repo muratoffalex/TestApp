@@ -49,7 +49,7 @@
         actionLabel = [UILabel new];
         actionLabel.hidden = YES;
         
-        [actionLabel setFont:[UIFont fontWithName:@"System-Light" size:15]];
+        [actionLabel setFont:[UIFont fontWithName:@"System" size:14]];
         [actionLabel setTextColor:[UIColor lightGrayColor]];
         
         [actionLabel sizeToFit];
@@ -78,6 +78,7 @@
     if ((actionLabel != nil && actionLabel != NULL) && ![self.descrip.text isEqualToString:@"Отсутствует"]) {
         self.actionLabel.text = actionLabel;
         self.actionLabel.hidden = NO;
+        self.selectionStyle = UITableViewCellSelectionStyleDefault;
     }
 }
 

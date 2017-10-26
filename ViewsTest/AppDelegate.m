@@ -43,32 +43,6 @@
 //
     self.window.rootViewController = mainNav;
     
-//    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    UIStoryboard* storyboardLogin = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-////    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-////    NSInteger status = [defaults integerForKey:@"status"];
-    
-//    BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
-//
-//    if (!logined) {
-//        self.window.rootViewController = [storyboardLogin instantiateViewControllerWithIdentifier:@"loginNav"];
-//    } else {
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
-//    }
-//
-//    [self.window makeKeyAndVisible];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSInteger status = [defaults integerForKey:@"status"];
-//
-//    if (status == 1) {
-//        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
-//    } else if (status == 0) {
-//        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
-//    }
-    
     return YES;
 }
 

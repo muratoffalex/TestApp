@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.loginCell.loginTextField.delegate = self;
+    self.passCell.passTextField.delegate = self;
+    
     UIButton* testButton = [UIButton new];
     
     [testButton setTitle:@"Быстрый вход" forState:UIControlStateNormal];
@@ -63,12 +66,6 @@
     
     arrayCells = @[_loginCell, _passCell, _entryCell, _rememberCell];
     
-    self.loginCell.loginTextField.delegate = self;
-    self.passCell.passTextField.delegate = self;
-    
-    self.loginCell.loginTextField.text = @"test_user";
-    self.passCell.passTextField.text = @"test_pass";
-    
     if ([DataManager sharedInstance].status == 1) {
         TestViewController * detail = [[TestViewController alloc] init];
         [self.navigationController pushViewController:detail animated:NO];
@@ -90,7 +87,6 @@
     
     TestViewController * detail = [[TestViewController alloc] init];
     [self.navigationController pushViewController:detail animated:YES];
-    
 }
 
 #pragma mark - Table view data source

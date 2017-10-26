@@ -20,15 +20,6 @@
 @property (nonatomic) PassTableCell* passCell;
 @property (nonatomic) RememberTableCell* rememberCell;
 
-//@property (weak, nonatomic) IBOutlet UITextField *loginInput;
-//@property (weak, nonatomic) IBOutlet UITextField *passInput;
-//@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-//@property (weak, nonatomic) IBOutlet UISwitch *rememberSwitch;
-
 @property (assign, nonatomic) BOOL status;
-
-
-//- (IBAction)loginButtonTapped:(UIButton *)sender;
-
 
 @end

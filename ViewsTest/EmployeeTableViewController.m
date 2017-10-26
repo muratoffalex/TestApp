@@ -7,8 +7,6 @@
 //
 
 #import "EmployeeTableViewController.h"
-#import "DataManager.h"
-#import "InfoEmployeeTableCell.h"
 
 @interface EmployeeTableViewController ()
 
