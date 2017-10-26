@@ -28,8 +28,8 @@
         
         [_loginTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@44);
-            make.trailingMargin.equalTo(self.mas_trailing).offset(-20);
-            make.left.equalTo(@20);
+            make.leadingMargin.equalTo(@20);
+            make.centerX.equalTo(@0);
             make.top.equalTo(@8);
         }];
         

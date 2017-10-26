@@ -32,8 +32,8 @@
         
         [_entryButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@50);
-            make.trailingMargin.equalTo(self.mas_trailing).offset(-30);
-            make.left.equalTo(@25);
+            make.centerX.equalTo(@0);
+            make.leadingMargin.equalTo(@25);
             make.top.equalTo(@10);
         }];
         

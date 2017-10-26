@@ -220,7 +220,13 @@
 }
 
 - (void) returnToRoot: (id) sender {
-    //[self.navigationController popToRootViewControllerAnimated:YES];
+    
+//    TestViewController *view = [[TestViewController alloc] init];
+//
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController pushViewController:view animated:NO];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

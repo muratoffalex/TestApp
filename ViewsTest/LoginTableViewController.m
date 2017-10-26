@@ -9,6 +9,7 @@
 #import "LoginTableViewController.h"
 #import "TestViewController.h"
 #import "DataManager.h"
+#import "AppDelegate.h"
 
 @interface LoginTableViewController ()
 
@@ -41,7 +42,6 @@
     
     [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(@0);
-        //make.width.equalTo(@200);
         make.height.equalTo(@40);
         make.leadingMargin.equalTo(@80);
         make.top.equalTo(@245);
@@ -50,7 +50,9 @@
     UIImageView* tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBack"]];
     [tempImageView setFrame: self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
+    
     [self.tableView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
+    
     self.navigationItem.title = @"Адресная книга";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     
@@ -75,7 +77,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (void) quickEntry: (UIButton*) sender {
@@ -86,6 +88,9 @@
     [[DataManager sharedInstance] saveUserData:isOn];
     
     TestViewController * detail = [[TestViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:detail];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    appDelegate.window.rootViewController = nav;
     [self.navigationController pushViewController:detail animated:YES];
 }
 
@@ -215,7 +220,6 @@
                 BOOL isOn = [_rememberCell.rememberSwitch isOn];
                 [[DataManager sharedInstance] saveUserData:isOn];
                 
-                NSLog(@"SUCCESS");
                 TestViewController * detail = [[TestViewController alloc] init];
                 [self.navigationController pushViewController:detail animated:YES];
             } else {

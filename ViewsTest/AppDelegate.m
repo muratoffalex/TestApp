@@ -7,17 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "TestViewController.h"
-#import "DataManager.h"
-#import "MainNavigationController.h"
-#import "LoginTableViewController.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -28,20 +23,18 @@
     [[DataManager sharedInstance] loadUserData];
     
     LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    MainNavigationController *mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
-    
-//    MainNavigationController *mainNav;
-//
+    _mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
+
 //    BOOL logined = [DataManager sharedInstance].status ? 1 : 0;
 //    if (logined) {
 //        TestViewController* testView = [[TestViewController alloc] init];
-//        mainNav = [[MainNavigationController alloc] initWithRootViewController:testView];
+//        _mainNav = [[MainNavigationController alloc] initWithRootViewController:testView];
 //    } else {
 //        LoginTableViewController* mainView = [[LoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-//        mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
+//        _mainNav = [[MainNavigationController alloc] initWithRootViewController:mainView];
 //    }
-//
-    self.window.rootViewController = mainNav;
+    
+    self.window.rootViewController = _mainNav;
     
     return YES;
 }

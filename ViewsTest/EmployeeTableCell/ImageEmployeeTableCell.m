@@ -24,7 +24,6 @@
         _image = [UIImageView new];
         _image.layer.cornerRadius = 92.5;
         _image.clipsToBounds = YES;
-        [_image sizeToFit];
         
         [self addSubview:_image];
         

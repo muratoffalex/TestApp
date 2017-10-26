@@ -23,7 +23,6 @@
         UIImageView* image = [UIImageView new];
         
         [image setImage:[UIImage imageNamed:@"key"]];
-        [image sizeToFit];
         
         [self addSubview:image];
         
@@ -46,7 +45,6 @@
         }];
         
         _rememberSwitch = [UISwitch new];
-        [_rememberSwitch sizeToFit];
         [_rememberSwitch setOn:YES];
         
         [self addSubview:_rememberSwitch];
